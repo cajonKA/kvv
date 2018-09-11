@@ -1,0 +1,40 @@
+.route{
+    background-color: #950e2e;
+    background-image:-moz-linear-gradient(left center , #ca0039, #910f2f);
+    color:white;
+    padding:5px;
+    border: 5px solid;
+    text-align: center;
+    font-family: "OpenSansRegular",Tahoma,Geneva,Arial,sans-serif;
+    font-weight: bold;
+    font-size:20px;
+}
+.dest{
+    padding:0 20px;
+}
+.real{
+    padding:0 20px;
+}
+/*body{
+         background-color:black;
+       }*/
+div #ttable {
+    background-color:white;
+    float: right;
+    margin: 7% 0;
+    padding: 0 30px 35px;
+}
+div #options {
+    padding: 7%;
+    font-size:large;
+}
+.form-control {
+    width: 500px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    font-size: large;
+}
+h2 {
+    text-decoration:underline;
+    font-weight: bold;
+}

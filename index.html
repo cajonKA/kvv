@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="kvv.css" rel="stylesheet">
+    </head>
+    <body>
+        <script src= "//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+        <script src= "//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-cookies.min.js"></script>
+        <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js"></script>
+        <script src="kvv.js"></script>
+
+        <div ng-app="kvvApp" ng-controller="kvvCtrl as kvv">
+            <div id="ttable">
+                <h2>{{response.stopName}} - {{kvv.route}}</h2>
+                <table>
+                    <tr ng-repeat="x in response.departures" style="font-size:25px">
+                        <td class="route">{{x.route}} </td>
+                        <td class="dest">nach {{x.destination}}</td>
+                        <td style="{{x.mod}}">{{x.time}}</td>
+                        <td class="real">{{x.isReal}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="options">
+                <select name="singleSelect" id="singleSelect" ng-model="kvv.dir" ng-change="kvv.setDir()">
+                    <option value="">Alle Richtungen</option>
+                    <option value="2">Aus SW kommend</option>
+                    <option value="1">Aus NE kommend</option>
+                </select>
+                <input type="text" ng-model="asyncSelected" placeholder="Haltestelle aus KVV Daten" uib-typeahead="item as item.name for item in kvv.getStop($viewValue)" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="form-control" typeahead-min-length="3" typeahead-on-select='kvv.selectStop($item)'>
+                <select name="trainSelect" id="trainSelect" ng-model="kvv.trainSelect" multiple ng-change="kvv.setTrain()">
+                    <option ng-repeat="train in kvv.trains" value="{{train}}">{{train}}</option>
+                </select>
+            </div>
+        </div>
+    </body>
+</html>
+
